@@ -1,111 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XAYTHEON - Collaborative Innovation Platform</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- 3D Background Canvas -->
-  <!-- This canvas sits behind all page content. script.js draws the 3D shape here. -->
-  <div class="canvas-container">
-    <canvas id="three-canvas"></canvas>
-    <!-- Loading spinner shown while the 3D scene sets up -->
-    <div id="loading-screen" class="loading-screen">
-      <div class="loader"></div>
-      <p>Initializing XAYTHEON...</p>
-    </div>
-  </div>
-
-  <!-- Main Page Content (sits on top of the 3D canvas) -->
-  <div class="content">
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a class="logo" href="index.html" aria-label="XAYTHEON home">
-          <img class="logo-img" src="assets/logo/thelogo.png" alt="XAYTHEON logo" />
-        </a>
-        <ul class="nav-menu">
-          <li><a class="nav-link" href="github.html">GitHub Dashboard</a></li>
-          <li><a class="nav-link" href="community.html">Community Highlights</a></li>
-          <li><a class="nav-link" href="explore.html">Explore by Topic</a></li>
-          <li><a class="nav-link" href="contributions.html">Contributions</a></li>
-        </ul>
-        <button id="theme-toggle" class="btn btn-primary" style="margin:0px important!"></button>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XAYTHEON - Collaborative Innovation Platform</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 3D Background Canvas 
+    <!-- This canvas sits behind all page content. script.js draws the 3D shape here. -->
+    <div class="canvas-container">
+      <!-- <canvas id="three-canvas"></canvas> --> // to do : remove this 
+      <!-- Loading spinner shown while the 3D scene sets up -->
+      <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Initializing XAYTHEON...</p>
       </div>
-    </nav>
+    </div> 
 
-    <!-- Hero Section: the big centered text on the home page -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="title-line">Welcome to</span>
-          <span class="title-main title-main--logo">
-            <img src="assets/logo/thelogo.png" alt="XAYTHEON" class="title-logo-img" />
-          </span>
-          <span class="title-subtitle">
-            Where <span class="accent-glow">INNOVATION</span> Meets
-            <span class="accent-glow">COLLAB</span>ORATION
-          </span>
-        </h1>
-      </div>
-    </section>
+    <!-- Main Page Content (sits on top of the 3D canvas) -->
+    <div class="content">
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <a class="logo" href="index.html" aria-label="XAYTHEON home">
+            <img
+              class="logo-img"
+              src="assets/logo/thelogo.png"
+              alt="XAYTHEON logo"
+            />
+          </a>
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="github.html">GitHub Dashboard</a></li>
+            <li>
+              <a class="nav-link" href="community.html">Community Highlights</a>
+            </li>
+            <li>
+              <a class="nav-link" href="explore.html">Explore by Topic</a>
+            </li>
+            <li>
+              <a class="nav-link" href="contributions.html">Contributions</a>
+            </li>
+          </ul>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <span class="logo-text">XAYTHEON</span>
-            <p>Empowering the next generation of innovators</p>
+          <div class="nav-right">
+            <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <span class="footer-label">XAYTHEON</span>
+          <button
+            id="theme-toggle"
+            class="btn btn-primary"
+            style="margin: 0px "
+          ></button>
+          </div>
+
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 XAYTHEON. All rights reserved.</p>
+      </nav>
+
+      <!-- Hero Section: the big centered text on the home page -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-line">Welcome to</span>
+            <span class="title-main title-main--logo">
+              <img
+                src="assets/logo/thelogo.png"
+                alt="XAYTHEON"
+                class="title-logo-img"
+              />
+            </span>
+            <span class="title-subtitle">
+              Where <span class="accent-glow">INNOVATION</span> Meets
+              <span class="accent-glow">COLLAB</span>ORATION
+            </span>
+          </h1>
         </div>
-      </div>
-    </footer>
+      </section>
 
-  </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <span class="logo-text">XAYTHEON</span>
+              <p>Empowering the next generation of innovators</p>
+            </div>
+            <span class="footer-label">XAYTHEON</span>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 XAYTHEON. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
 
-  <!-- Three.js: the 3D graphics library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <!-- OrbitControls: lets you click and drag to rotate the 3D view -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <!-- GLTFLoader: loads .glb 3D model files -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <!-- Our main script: 3D scene + GitHub Dashboard logic -->
-  <script src="script.js"></script>
+    <!-- Three.js: the 3D graphics library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls: lets you click and drag to rotate the 3D view -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- GLTFLoader: loads .glb 3D model files -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <!-- Our main script: 3D scene + GitHub Dashboard logic -->
+    <script src="script.js"></script>
 
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
+    <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
 
-    const savedTheme = localStorage.getItem('theme') || 
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+    
+    const toggleBtn = document.getElementById("theme-toggle");
 
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateButtonLabel(savedTheme);
+      const savedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
 
-    toggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      updateButtonLabel(savedTheme);
+
+      toggleBtn.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
         updateButtonLabel(newTheme);
         console.log(currentTheme);
-    });
+      });
 
-    function updateButtonLabel(theme) {
-        toggleBtn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
-    }
+      function updateButtonLabel(theme) {
+        toggleBtn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+      }
     </script>
-
-</body>
+  </body>
 </html>
